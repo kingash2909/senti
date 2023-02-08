@@ -8,29 +8,29 @@ from datetime import datetime
 
 # Make Code and URL Dictionary for different Emotions
 emo_code_url = {
-    "empty": [0, "./static/assets/emoticons/Empty.png"],
-    "sadness": [1, "./static/assets/emoticons/Sadness.png"],
-    "enthusiasm": [2, "./static/assets/emoticons/Enthusiastic.png"],
-    "neutral": [3, "./static/assets/emoticons/Neutral.png"],
-    "worry": [4, "./static/assets/emoticons/Worry.png"],
-    "surprise": [5, "./static/assets/emoticons/Surprise.png"],
-    "love": [6, "./static/assets/emoticons/Love.png"],
-    "fun": [7, "./static/assets/emoticons/Fun.png"],
-    "hate": [8, "./static/assets/emoticons/Hate.png"],
-    "happiness": [9, "./static/assets/emoticons/Happiness.png"],
-    "boredom": [10, "./static/assets/emoticons/Boredom.png"],
-    "relief": [11, "./static/assets/emoticons/Relief.png"],
-    "anger": [12, "./static/assets/emoticons/Anger.png"],
+    "empty": [0, "Empty.png"],
+    "sadness": [1, "Sadness.png"],
+    "enthusiasm": [2, "Enthusiastic.png"],
+    "neutral": [3, "Neutral.png"],
+    "worry": [4, "Worry.png"],
+    "surprise": [5, "Surprise.png"],
+    "love": [6, "Love.png"],
+    "fun": [7, "Fun.png"],
+    "hate": [8, "Hate.png"],
+    "happiness": [9, "Happiness.png"],
+    "boredom": [10, "Boredom.png"],
+    "relief": [11, "Relief.png"],
+    "anger": [12, "Anger.png"],
 }
 
-train_data = pd.read_csv("./static/assets/data_files/tweet_emotions.csv")    
+train_data = pd.read_csv("tweet_emotions.csv")    
 training_sentences = []
 
 for i in range(len(train_data)):
     sentence = train_data.loc[i, "content"]
     training_sentences.append(sentence)
 
-model = load_model("./static/assets/model_file/Tweets_Text_Emotion.h5")
+model = load_model("Tweets_Text_Emotion.h5")
 
 vocab_size = 40000
 max_length = 100
@@ -65,7 +65,7 @@ def predict(text):
         return predicted_emotion, predicted_emotion_img_url
 
 def show_entry():
-    day_entry_list = pd.read_csv("./static/assets/data_files/data_entry.csv")
+    day_entry_list = pd.read_csv("data_entry.csv")
 
     day_entry_list = day_entry_list.iloc[::-1]
     
