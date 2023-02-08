@@ -41,7 +41,7 @@ def save_entry():
     
     save_text = save_text.replace("\n", " ")
     entry = f'"{date}","{save_text}","{emotion}"\n'         
-    with open("./static/assets/data_files/data_entry.csv", "a") as f:
+    with open("data_entry.csv", "a") as f:
         f.write(entry)
     return jsonify("Success")
            
